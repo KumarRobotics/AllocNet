@@ -1,0 +1,1 @@
+- git: {local-name: map_generator, uri: 'git@github.com:yuwei-wu/map_generator.git'}

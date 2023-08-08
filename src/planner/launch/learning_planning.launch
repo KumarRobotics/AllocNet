@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+  <node name="rviz" pkg="rviz" type="rviz" output="screen"
+    args="-d $(find planner)/config/planner.rviz"> 
+  </node>
+  
+  <arg name="map_frame_id" default="odom"/>
+  <arg name="map_size_x" default="25"/>
+  <arg name="map_size_y" default="25"/>
+  <arg name="map_size_z" default="5"/>
+  <arg name="map_x_origin" default="-12.5"/>
+  <arg name="map_y_origin" default="-12.5"/>
+  <arg name="map_z_origin" default="0.0"/>
+
+
+  <node pkg ="param_env" name ="structure_map" type ="structure_map" output = "screen">    
+
+    <param name="map/x_size"     value="$(arg map_size_x)" />
+    <param name="map/y_size"     value="$(arg map_size_y)" />
+    <param name="map/z_size"     value="$(arg map_size_z)" />
+    <param name="map/x_origin"   value="$(arg map_x_origin)"/>
+    <param name="map/y_origin"   value="$(arg map_y_origin)"/>
+    <param name="map/z_origin"   value="$(arg map_z_origin)"/>
+
+    <param name="map/resolution"  value="0.1"/>        
+    <param name="map/frame_id"    value="$(arg map_frame_id)" />
+
+    <!-- total obstacle ratios -->
+    <param name="map/cylinder_ratio" value="0.09" type="double"/>
+    <param name="map/circle_ratio"   value="0.015" type="double"/>
+    <param name="map/gate_ratio"     value="0.01" type="double"/>
+    <param name="map/ellip_ratio"    value="0.0" type="double"/>
+    <param name="map/poly_ratio"     value="0.0 " type="double"/>
+    <param name="map/add_noise"  value="true"/>
+    <param name="params/w1" value="0.1"/>
+    <param name="params/w2" value="0.5"/>          
+    <param name="params/w3" value="1.0"/>
+    <param name="params/w4" value="2.4"/>
+
+  </node>
+
+  <node pkg="planner" type="learning_planning" name="learning_planning_node" output="screen">
+    <rosparam file="$(find planner)/config/planner.yaml" command="load" />
+
+    <param name="ModelPath" value="$(find planner)/models/seq5_tokenthresh0_35.pt"/>
+    <param name="ModelMaxSeg" type="int" value="5"/>
+    <param name="frame_id"    value="$(arg map_frame_id)" />
+
+  </node>
+
+</launch>
