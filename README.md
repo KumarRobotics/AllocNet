@@ -6,8 +6,6 @@ A lightweight learning-based trajectory optimization framework.
 
 
 
-
-
 ## Acknowledges
 
 
@@ -22,11 +20,9 @@ A lightweight learning-based trajectory optimization framework.
 
 #### 1.1 libtorch
 
-download the libtorch and put it into planner folder
+download the libtorch and put it into the planner folder
 
-[GPU VERSION](https://download.pytorch.org/libtorch/test/cu117/libtorch-cxx11-abi-shared-with-deps-latest.zip)
-
-[CPU VERSION](https://download.pytorch.org/libtorch/test/cpu/libtorch-cxx11-abi-shared-with-deps-latest.zip)
+[GPU VERSION](https://download.pytorch.org/libtorch/test/cu117/libtorch-cxx11-abi-shared-with-deps-latest.zip), [CPU VERSION](https://download.pytorch.org/libtorch/test/cpu/libtorch-cxx11-abi-shared-with-deps-latest.zip)
 
 #### 1.2 qp solver 
 
@@ -47,7 +43,7 @@ cmake ..
 sudo make install
 ```
 
-### 1.3 Build on ROS 
+### 2. Build on ROS 
 
 ```
 git clone git@github.com:yuwei-wu/AllocNet.git && cd AllocNet/src
@@ -55,7 +51,7 @@ wstool init && wstool merge utils.rosinstall && wstool update
 catkin build
 ```
 
-### 1.4 Run
+### 3. Run
 
 ```
 source devel/setup.bash
