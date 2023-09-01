@@ -1,1 +1,1 @@
-- git: {local-name: map_generator, uri: 'git@github.com:yuwei-wu/map_generator.git'}
+- git: {local-name: kr_param_map, uri: 'git@github.com:KumarRobotics/kr_param_map.git'}

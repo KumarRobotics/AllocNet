@@ -27,12 +27,12 @@
     <param name="map/frame_id"    value="$(arg map_frame_id)" />
 
     <!-- total obstacle ratios -->
-    <param name="map/cylinder_ratio" value="0.09" type="double"/>
-    <param name="map/circle_ratio"   value="0.015" type="double"/>
-    <param name="map/gate_ratio"     value="0.01" type="double"/>
-    <param name="map/ellip_ratio"    value="0.0" type="double"/>
-    <param name="map/poly_ratio"     value="0.0 " type="double"/>
-    <param name="map/add_noise"  value="true"/>
+    <param name="params/cylinder_ratio" value="0.09" type="double"/>
+    <param name="params/circle_ratio"   value="0.015" type="double"/>
+    <param name="params/gate_ratio"     value="0.01" type="double"/>
+    <param name="params/ellip_ratio"    value="0.0" type="double"/>
+    <param name="params/poly_ratio"     value="0.0 " type="double"/>
+    <param name="params/add_noise"  value="true"/>
     <param name="params/w1" value="0.1"/>
     <param name="params/w2" value="0.5"/>          
     <param name="params/w3" value="1.0"/>
