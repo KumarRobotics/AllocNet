@@ -270,13 +270,7 @@ public:
 
         hPolys.clear();
         vishPolys.clear();
-        // sfc_gen::getPolyConst(route,
-        //                      pc,
-        //                      mapPtr.getOrigin(),
-        //                      mapPtr.getCorner(),
-        //                      3.0,
-        //                      3.0,
-        //                      vishPolys);
+
         sfc_gen::convexCover(route,
                              pc,
                              mapPtr.getOrigin(),
