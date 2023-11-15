@@ -90,7 +90,7 @@ roslaunch planner learning_planning.launch
 click 2D Nav Goal to trigger planning:
 
 <p align="center">
-  <img src="docs/sim_vis.gif" height = "400"/>
+  <img src="docs/sim_vis.gif"/>
 </p>
 
 
@@ -121,7 +121,7 @@ network/
 
 ### 2. Setup
 
-#### 2.1 Install Dependences
+#### 2.1 Install Dependencies
 
 - Install Ubuntu packages
   - `sudo apt-get install python3-dev python3-venv`
@@ -140,7 +140,7 @@ Follow the instructions to install, and you may need to change the *CMakeLists.t
 ```
 iris: https://github.com/rdeits/iris-distro
 ```
-For AMD CPU, if encounter core dump, please refer to instructions in this link:
+For AMD CPU, if you encounter a core dump, please refer to instructions in this link:
 ```
 https://github.com/rdeits/iris-distro/issues/81
 ```
