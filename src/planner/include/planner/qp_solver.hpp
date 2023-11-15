@@ -82,76 +82,10 @@ public:
         return;
     }
 
-
     inline double getObjCost()
     { 
         return obj_cost_;
     }
-
-
-    template <typename T>
-    inline double getObjCost(const T& times, 
-                             const Eigen::VectorXd& coeffs)
-    { 
-        size_t var_num = coeffs.size();
-        Eigen::MatrixXd tempQ(var_num, var_num);
-        tempQ.setZero();
-        Eigen::MatrixXd Cost_Q;
-        float t, t_2, t_3, t_4, t_5, t_6, t_7;
-        float m_11, m_12, m_13, m_14, m_22, m_23, m_24, m_33, m_34;
-        size_t idx, col_idx;
-
-        for(size_t i = 0; i < seg_; i ++) // q0_____|_______|______qf
-        {
-            idx = i * dim_ * d_;
-            t = times(i);
-            t_2 = t * t;
-            t_3 = t * t_2;
-            t_4 = t_2 * t_2;
-            t_5 = t_2 * t_3;
-            if (order_ == 4)
-            {
-                t_6 = t_3 * t_3;
-                t_7 = t_4 * t_3;
-                m_11 = 100800 * t_7;
-                m_12 = 50400  * t_6;
-                m_13 = 20160  * t_5;
-                m_14 = 5040   * t_4;
-                m_22 = 25920  * t_5;
-                m_23 = 10800  * t_4;
-                m_24 = 2880   * t_3;
-                m_33 = 4800 * t_3;
-                m_34 = 1400 * t_2;
-
-                Cost_Q.resize(order_, order_);
-
-                Cost_Q << m_11,  m_12, m_13, m_14,
-                          m_12,  m_22, m_23, m_24,
-                          m_13,  m_23, m_33, m_34,
-                          m_14,  m_24, m_34, 576*t;
-            }else
-            {
-                m_11 = 720 * t_5;
-                m_12 = 360 * t_4;
-                m_13 = 120 * t_3;
-                m_22 = 192 * t_3;
-                m_23 = 72  * t_2;
-                Cost_Q.resize(order_, order_);
-                Cost_Q << m_11,  m_12, m_13, 
-                          m_12,  m_22, m_23,
-                          m_13,  m_23, 36*t;
-            }
-
-            for(size_t j = 0; j < dim_; j ++)
-            {
-                col_idx = idx + j * d_;
-                tempQ.block(col_idx, col_idx, order_, order_) = Cost_Q;
-            }
-        }        
-        
-        return 0.5 *  coeffs.transpose() * tempQ * coeffs;
-    }
-
 
     template <typename T>
     inline Eigen::MatrixXd get_t_state(const T &t)
@@ -181,21 +115,6 @@ public:
         return conti_A;
     }
 
-
-    // only support order =3 now
-    template <typename T>
-    inline Eigen::MatrixXd get_t_state_grad(const T &t)
-    {
-        T t_2 = t * t;
-        T t_3 = t * t_2;
-        T t_4 = t_2 * t_2;
-
-        Eigen::MatrixXd conti_A(order_, d_);
-        conti_A <<  5 * t_4, 4 * t_3, 3 * t_2, 2 * t,  1,  0,
-                    20* t_3, 12* t_2, 6 * t,       2,  0,  0,
-                    60* t_2, 24* t,       6,       0,  0,  0;
-        return conti_A;
-    }
 
     template <typename T>
     inline bool solve(const Eigen::MatrixXd& iniPVA,    //3*3
@@ -428,7 +347,7 @@ public:
         auto status = solver.getStatus();
         if((status != OsqpEigen::Status::Solved))
         {
-            std::cout << "[QP solver]: solver.status() " << std::endl;
+            std::cout << "[QP solver]: solver failed " << std::endl;
             return false;
         }
 

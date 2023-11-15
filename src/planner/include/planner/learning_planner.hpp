@@ -26,7 +26,7 @@ private:
 
 public:
     LearningPlanner(ros::NodeHandle &nh)
-        : device(torch::kCUDA),
+        : device(torch::kCUDA), // change to torch::kCPU if you want to run inference on the CPU
           qp_solver(QPConfig(nh))
     {
 
@@ -182,7 +182,7 @@ public:
         {   
             if (times(i) < 1e-10)
             {
-                std::cout << "time and seg does not fit" << std::endl;
+                std::cout << "time and seg does not fit, the segment is" << seg << std::endl;
                 return false;
             }
 

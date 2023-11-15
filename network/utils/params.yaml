@@ -1,0 +1,24 @@
+physical_limits:
+    max_vel:  5.0 # box size velocity
+    max_acc:  7.0
+    max_jerk: 12.0
+
+phase1_physical_limits:
+    max_vel:  5.0 # box size velocity
+    max_acc:  8.0
+    max_jerk: 10.0
+    inf_dis:  0.1
+
+planning:
+    order: 4 # order = 3 for minimal jerk, = 4 for minimal snap
+    state_dim: 3 # continuity up to acc
+    dim: 3
+    res: 20 #feasibility resolution by time
+    seg: 5
+    var_num: 120
+    # eq_num: 66
+    # ineq_num: 2500
+    # self.var_num = self.seg * self.dim * self.D
+    # self.eq_num = (2 * self.state_dim + ( 1 + self.order ) * (self.seg-1) ) * self.dim 
+    # self.ineq_num = self.res * 200
+    use_time_factor: false

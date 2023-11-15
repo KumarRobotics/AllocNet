@@ -1,0 +1,28 @@
+pcd_mode: multi_map
+dataset_dir: datasets/multi_map_dataset
+checkpoint_dir: models/multi_map_dataset_1lstm
+log_dir: logs/multi_map_dataset_1lstm
+poly_type: hpoly
+random_seed: 0
+network:
+    decoder_type: lstm
+    pcl_input_nc: 3
+    pcl_output_nc: 1024
+    state_input_size: 6
+    state_output_size: 128
+    hidden_size: 256
+use_scheduler: True
+scheduler:
+    T_0: 500
+    T_mult: 2
+    eta_min: 1e-5
+    last_epoch: -1
+training:
+    learning_rate: 1e-2
+    dataloader_batch_size: 32
+    dataloader_num_workers: 16
+    dataloader_shuffle: True
+    training_data_ratio: 0.9
+    max_epochs: 2000
+    save_freq: 1
+    validation_batch_size: 20

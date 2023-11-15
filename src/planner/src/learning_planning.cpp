@@ -74,14 +74,25 @@ public:
         nh_private.getParam("ModelPath", modelPath);
         learning_planner_.loadModel(modelPath);
 
-
         nh_private.getParam("MapTopic", mapTopic);
         nh_private.getParam("TargetTopic", targetTopic);
-        nh_private.getParam("DilateRadius", dilateRadius);
-        nh_private.getParam("VoxelWidth", voxelWidth);
-        nh_private.getParam("MapBound", mapBound);
         nh_private.getParam("OptOrder", optOrder);
 
+        Eigen::Vector3d map_size;
+        mapBound.resize(6);
+
+        nh_private.param("map/x_size", map_size(0), 40.0);
+        nh_private.param("map/y_size", map_size(1), 40.0);
+        nh_private.param("map/z_size", map_size(2), 5.0);
+        nh_private.param("map/x_origin", mapBound[0], -20.0);
+        nh_private.param("map/y_origin", mapBound[2], -20.0);
+        nh_private.param("map/z_origin", mapBound[4], 0.0);
+        nh_private.param("map/resolution", voxelWidth, 0.1);
+        nh_private.param("map/inflate_radius", dilateRadius, 0.1);
+
+        mapBound[1] = mapBound[0] + map_size(0);
+        mapBound[3] = mapBound[2] + map_size(1);
+        mapBound[5] = mapBound[4] + map_size(2);
 
         const Eigen::Vector3i xyz((mapBound[1] - mapBound[0]) / voxelWidth,
                                   (mapBound[3] - mapBound[2]) / voxelWidth,
@@ -167,12 +178,11 @@ public:
 
                 trajStamp = ros::Time::now().toSec();
 
-                std::vector<Eigen::MatrixX4d> plys;
-                learning_planner_.gethPolys(plys);
-                visualizer.visualizePolytope(plys);
-
             }
 
+            std::vector<Eigen::MatrixX4d> plys;
+            learning_planner_.gethPolys(plys);
+            visualizer.visualizePolytope(plys);
 
         }
     }

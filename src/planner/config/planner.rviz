@@ -9,14 +9,8 @@ Panels:
         - /GlobalMap1
         - /GlobalMap1/GlobalMap1
         - /GlobalMap1/GlobalMap1/Autocompute Value Bounds1
-        - /Marker1
-        - /Marker2
-        - /Marker3
-        - /Marker4
-        - /Marker5
-        - /Marker6
       Splitter Ratio: 0.5472221970558167
-    Tree Height: 1696
+    Tree Height: 1136
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -86,7 +80,7 @@ Visualization Manager:
         Y: 0
         Z: 0
       Plane: XY
-      Plane Cell Count: 28
+      Plane Cell Count: 25
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 1
@@ -100,7 +94,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/Group
       Displays:
-        - Alpha: 0.029999999329447746
+        - Alpha: 0.10000000149011612
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
             Max Value: 4.900000095367432
@@ -109,7 +103,7 @@ Visualization Manager:
           Axis: Z
           Channel Name: intensity
           Class: rviz/PointCloud2
-          Color: 211; 215; 207
+          Color: 186; 189; 182
           Color Transformer: FlatColor
           Decay Time: 0
           Enabled: true
@@ -118,75 +112,78 @@ Visualization Manager:
           Min Color: 0; 0; 0
           Name: GlobalMap
           Position Transformer: XYZ
-          Queue Size: 10
+          Queue Size: 20
           Selectable: false
           Size (Pixels): 3
-          Size (m): 0.20000000298023224
-          Style: Flat Squares
-          Topic: /structure_map/global_cloud
+          Size (m): 0.10000000149011612
+          Style: Squares
+          Topic: /structure_map/global_gridmap
           Unreliable: true
           Use Fixed Frame: true
           Use rainbow: true
           Value: true
       Enabled: true
       Name: GlobalMap
-    - Class: rviz/Marker
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /visualizer/text
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /visualizer/trajectory
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /visualizer/spheres
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /visualizer/edge
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /visualizer/mesh
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /visualizer/route
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /visualizer/waypoints
+          Name: Marker
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
       Enabled: true
-      Marker Topic: /visualizer/waypoints
-      Name: Marker
-      Namespaces:
-        waypoints: true
-      Queue Size: 100
-      Value: true
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: /visualizer/route
-      Name: Marker
-      Namespaces:
-        route: true
-      Queue Size: 100
-      Value: true
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: /visualizer/mesh
-      Name: Marker
-      Namespaces:
-        {}
-      Queue Size: 100
-      Value: true
-    - Class: rviz/Marker
-      Enabled: false
-      Marker Topic: /visualizer/edge
-      Name: Marker
-      Namespaces:
-        {}
-      Queue Size: 100
-      Value: false
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: /visualizer/spheres
-      Name: Marker
-      Namespaces:
-        StartGoal: true
-        spheres: true
-      Queue Size: 100
-      Value: true
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: /visualizer/trajectory
-      Name: Marker
-      Namespaces:
-        trajectory: true
-      Queue Size: 100
-      Value: true
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: /visualizer/text
-      Name: Marker
-      Namespaces:
-        {}
-      Queue Size: 100
-      Value: true
+      Name: Vis
   Enabled: true
   Global Options:
     Background Color: 255; 255; 255
@@ -215,7 +212,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 37.52121353149414
+      Distance: 25.094188690185547
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -223,9 +220,9 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -1.1680171489715576
-        Y: -0.4344073534011841
-        Z: -0.5452388525009155
+        X: -1.8981117010116577
+        Y: -0.23192614316940308
+        Z: -0.5276687145233154
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
@@ -233,7 +230,7 @@ Visualization Manager:
       Near Clip Distance: 0.009999999776482582
       Pitch: 1.5697963237762451
       Target Frame: drone1
-      Yaw: 3.2666666507720947
+      Yaw: 3.1366639137268066
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 4.048277378082275
@@ -358,10 +355,10 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 2018
-  Hide Left Dock: false
+  Height: 1458
+  Hide Left Dock: true
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000003000000000000026b00000726fc020000000dfb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afc0000008600000726000001de00fffffffa000000010100000002fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000000ffffffff0000014800fffffffb000000100044006900730070006c00610079007301000000000000016a0000026b00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001e0054006f006f006c002000500072006f0070006500720074006900650073000000018200000259000000da00fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000312000000ac000000da00fffffffb0000000c00540065006c0065006f007000000002f1000000cd0000000000000000fb00000014004400650070007400680049006d00610067006500000001e9000000e10000000000000000fb0000000a0049006d00610067006500000000130000053f0000000000000000fb000000140043006f006c006f0072004400650070007400680100000467000000160000000000000000fb0000000a0049006d00610067006501000002fe00000101000000000000000000000001000002370000052dfc0200000003fb0000000a0056006900650077007300000000160000052d0000017800fffffffc00000016000003c50000000000fffffffaffffffff0100000004fb0000000a005600690065007700730000000000ffffffff000001b400fffffffb0000001200530065006c0065006300740069006f006e0000000000ffffffff000000e200fffffffb000000100044006900730070006c0061007900730000000000ffffffff0000026b00fffffffb0000000a0056006900650077007300000006300000010f000001b400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000030000071b0000003efc0100000002fb0000000800540069006d006500000000000000071b0000096f00fffffffb0000000800540069006d0065010000000000000450000000000000000000000c1a0000072600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd000000030000000000000462000004f6fc020000000dfb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afc00000086000004f60000000000fffffffaffffffff0100000002fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000000ffffffff0000014800fffffffb000000100044006900730070006c00610079007300000000000000016a0000026b00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001e0054006f006f006c002000500072006f0070006500720074006900650073000000018200000259000000da00fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000312000000ac000000da00fffffffb0000000c00540065006c0065006f007000000002f1000000cd0000000000000000fb00000014004400650070007400680049006d00610067006500000001e9000000e10000000000000000fb0000000a0049006d00610067006500000000130000053f0000000000000000fb000000140043006f006c006f0072004400650070007400680100000467000000160000000000000000fb0000000a0049006d00610067006501000002fe00000101000000000000000000000001000002370000052dfc0200000003fb0000000a0056006900650077007300000000160000052d0000017800fffffffc00000016000003c50000000000fffffffaffffffff0100000004fb0000000a005600690065007700730000000000ffffffff000001b400fffffffb0000001200530065006c0065006300740069006f006e0000000000ffffffff000000e200fffffffb000000100044006900730070006c0061007900730000000000ffffffff0000026b00fffffffb0000000a0056006900650077007300000006300000010f000001b400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000030000071b0000003efc0100000002fb0000000800540069006d006500000000000000071b0000096f00fffffffb0000000800540069006d0065010000000000000450000000000000000000000994000004f600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -370,6 +367,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 3732
-  X: 3948
+  Width: 2452
+  X: 108
   Y: 68

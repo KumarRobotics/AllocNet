@@ -185,7 +185,6 @@ namespace sfc_gen
         }
     }
 
-
     inline void shortCut(std::vector<Eigen::MatrixX4d> &hpolys)
     {
         std::vector<Eigen::MatrixX4d> htemp = hpolys;

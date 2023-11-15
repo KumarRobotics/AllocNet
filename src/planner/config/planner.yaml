@@ -1,12 +1,4 @@
-MapTopic:                   '/structure_map/global_cloud'  
-
 TargetTopic:                '/move_base_simple/goal'
-
-DilateRadius:               0.2
-
-VoxelWidth:                 0.1
-
-MapBound:                   [-12.5, 12.5, -12.5, 12.5, 0.0, 5.0]
 
 VehicleMass:                1.0
 

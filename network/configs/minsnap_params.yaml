@@ -1,0 +1,43 @@
+physical_limits:
+    max_vel:  4.0 # box size velocity
+    max_acc:  6.0
+    max_jerk: 6.0
+
+planning:
+    order: 4 # order = 3 for minimal jerk, = 4 for minimal snap
+    state_dim: 3 # continuity up to acc
+    dim: 3
+    res: 10 #feasibility resolution by time
+    seg: 5
+
+
+#######################################################################################
+
+dataset_dir: datasets/multi_map_dataset_700m_stacked
+checkpoint_dir: models/minsnap_700m_phase1_linear
+log_dir: logs/minsnap_700m_phase1_linear
+random_seed: 0
+
+poly_mode: hpoly
+
+use_scheduler: True
+scheduler:
+    T_0: 500
+    T_mult: 2
+    eta_min: 1e-5
+    last_epoch: -1
+training:
+    hidden_size: 128
+    learning_rate: 1e-3
+    dataloader_batch_size: 32
+    dataloader_shuffle: True
+    training_data_ratio: 0.9
+    max_epochs: 2000
+    save_freq: 1
+    validation_batch_size: 5
+    loss_dim_reduction: mean
+
+obj_weights:
+    w1: 1.0
+    w2: 0.00
+    wt: 500
