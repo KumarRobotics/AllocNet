@@ -6,17 +6,17 @@ AllocNet is a lightweight learning-based trajectory optimization framework.
 
 __Authors__: [Yuwei Wu](https://github.com/yuwei-wu), [Xiatao Sun](https://github.com/M4D-SC1ENTIST), Igor Spasojevic, and Vijay Kumar from the [Kumar Lab](https://www.kumarrobotics.org/).
 
-__Video Links__:  [Youtube](https://www.youtube.com/watch?v=tYFui5t9zJk)
+__Video Links__:  [Youtube](https://www.youtube.com/watch?v=tA02dJz9ux8)
 
 
-__Related Paper__: Wu, Y., Sun, X., Spasojevic, I. and Kumar, V., 2023. Learning Optimal Trajectories for Quadrotors. arXiv preprint arXiv:2309.15191.
+__Related Paper__: Wu, Y., Sun, X., Spasojevic, I. and Kumar, V., 2023. Deep Learning for Optimization of Trajectories for Quadrotors. arXiv preprint arXiv:2309.15191.
 [arxiv Preprint](https://arxiv.org/pdf/2309.15191.pdf)
 
 If this repo helps your research, please cite our paper at:
 
 ```bibtex
 @misc{wu2023learning,
-      title={Learning Optimal Trajectories for Quadrotors}, 
+      title={Deep Learning for Optimization of Trajectories for Quadrotors}, 
       author={Yuwei Wu and Xiatao Sun and Igor Spasojevic and Vijay Kumar},
       year={2023},
       eprint={2309.15191},
