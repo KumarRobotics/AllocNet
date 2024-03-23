@@ -9,20 +9,20 @@ __Authors__: [Yuwei Wu](https://github.com/yuwei-wu), [Xiatao Sun](https://githu
 __Video Links__:  [Youtube](https://www.youtube.com/watch?v=tA02dJz9ux8)
 
 
-__Related Paper__: Wu, Y., Sun, X., Spasojevic, I. and Kumar, V., 2023. Deep Learning for Optimization of Trajectories for Quadrotors. arXiv preprint arXiv:2309.15191.
+__Related Paper__: Y. Wu, X. Sun, I. Spasojevic and V. Kumar, "Deep Learning for Optimization of Trajectories for Quadrotors," in IEEE Robotics and Automation Letters, vol. 9, no. 3, pp. 2479-2486, March 2024
 [arxiv Preprint](https://arxiv.org/pdf/2309.15191.pdf)
 
 If this repo helps your research, please cite our paper at:
 
 ```bibtex
-@misc{wu2023learning,
-      title={Deep Learning for Optimization of Trajectories for Quadrotors}, 
-      author={Yuwei Wu and Xiatao Sun and Igor Spasojevic and Vijay Kumar},
-      year={2023},
-      eprint={2309.15191},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO}
-}
+@ARTICLE{10412114,
+  author={Wu, Yuwei and Sun, Xiatao and Spasojevic, Igor and Kumar, Vijay},
+  journal={IEEE Robotics and Automation Letters}, 
+  title={Deep Learning for Optimization of Trajectories for Quadrotors}, 
+  year={2024},
+  volume={9},
+  number={3},
+  pages={2479-2486}}
 ```
 
 ## Acknowledgements
@@ -107,7 +107,6 @@ network/
 ├── utils/                 - Utility functions and classes.
 │   └── learning/          - Contains network classes and layers
 │
-└── sample_<...>.py        - Scripts for sampling data
 └── train_minsnap_<...>.py - Scripts for training
 └── test_minsnap_<...>.py  - Scripts for testing
 └── ts_conversion_<...>.py - Scripts for converting to TorchScript
@@ -136,6 +135,7 @@ network/
   
 
 #### 2.2 Setup Iris
+
 Follow the instructions to install, and you may need to change the *CMakeLists.txt* in *iris-distro/CMakeLists.txt*
 ```
 iris: https://github.com/rdeits/iris-distro

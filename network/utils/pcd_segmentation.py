@@ -88,5 +88,4 @@ if __name__ == "__main__":
     
     # print("Printing first 10 rows of data:")
     # print(data[:10])
-    load_pcd
     sample_segments(pcd, segment_size, num_samples, num_filter, output_dir)
