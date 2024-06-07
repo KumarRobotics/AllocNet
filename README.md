@@ -48,7 +48,7 @@ sudo apt install libompl-dev
 
 #### 1.2 libtorch
 
-Download the libtorch and put it into the planner folder: [GPU version](https://download.pytorch.org/libtorch/test/cu117/libtorch-cxx11-abi-shared-with-deps-latest.zip), or [CPU version](https://download.pytorch.org/libtorch/test/cpu/libtorch-cxx11-abi-shared-with-deps-latest.zip)
+Download the libtorch and put it into the planner folder: [GPU version](https://download.pytorch.org/libtorch/nightly/cu117/libtorch-cxx11-abi-shared-with-deps-2.0.0.dev20230301%2Bcu117.zip), or [CPU version](https://download.pytorch.org/libtorch/nightly/cpu/libtorch-cxx11-abi-shared-with-deps-2.0.0.dev20230301%2Bcpu.zip)
 
 #### 1.3 QP solver 
 
@@ -78,7 +78,10 @@ git clone git@github.com:yuwei-wu/AllocNet.git && cd AllocNet/src
 wstool init && wstool merge utils.rosinstall && wstool update
 catkin build
 ```
-The default mode is set to the GPU version. To switch to the CPU, navigate to line 29 in the 'learning_planning.cpp' file and replace 'device(torch::kGPU)' with 'device(torch::kCPU)'. After making this change, recompile the code for the updates to take effect.
+The default mode is set to the GPU version. To switch to the CPU, navigate to line 29 in the 'learning_planning.hpp' file and replace 'device(torch::kGPU)' with 'device(torch::kCPU)'. After making this change, recompile the code for the updates to take effect.
+
+You can also check: - [Installing C++ Distributions of PyTorch](https://pytorch.org/cppdocs/installing.html)
+
 
 ### 3. Run
 

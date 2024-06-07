@@ -26,7 +26,7 @@ private:
 
 public:
     LearningPlanner(ros::NodeHandle &nh)
-        : device(torch::kCUDA), // change to torch::kCPU if you want to run inference on the CPU
+        : device(torch::kCPU), // change to torch::kCPU if you want to run inference on the CPU
           qp_solver(QPConfig(nh))
     {
 
