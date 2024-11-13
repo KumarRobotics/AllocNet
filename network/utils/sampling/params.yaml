@@ -1,7 +1,0 @@
-physical_limits:
-    max_vel:  4.0 # total
-    max_acc:  3.0
-    max_jerk: 2.0
-
-planning:
-    order: 3
