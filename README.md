@@ -48,7 +48,7 @@ sudo apt install libompl-dev
 
 #### 1.2 libtorch
 
-Download the libtorch and put it into the planner folder: [GPU version](https://download.pytorch.org/libtorch/nightly/cu117/libtorch-cxx11-abi-shared-with-deps-2.0.0.dev20230301%2Bcu117.zip), or [CPU version](https://download.pytorch.org/libtorch/nightly/cpu/libtorch-cxx11-abi-shared-with-deps-2.0.0.dev20230301%2Bcpu.zip)
+Download the libtorch and put it into the "AllocNet/src/planner/libtorch/" folder: [GPU version](https://download.pytorch.org/libtorch/nightly/cu117/libtorch-cxx11-abi-shared-with-deps-2.0.0.dev20230301%2Bcu117.zip), or [CPU version](https://download.pytorch.org/libtorch/nightly/cpu/libtorch-cxx11-abi-shared-with-deps-2.0.0.dev20230301%2Bcpu.zip)
 
 #### 1.3 QP solver 
 
@@ -73,12 +73,31 @@ sudo make install
 
 ### 2. Build on ROS 
 
+##### 2.1 Build
+
 ```
 git clone git@github.com:yuwei-wu/AllocNet.git && cd AllocNet/src
 wstool init && wstool merge utils.rosinstall && wstool update
 catkin build
 ```
-The default mode is set to the GPU version. To switch to the CPU, navigate to line 29 in the 'learning_planning.hpp' file and replace 'device(torch::kGPU)' with 'device(torch::kCPU)'. After making this change, recompile the code for the updates to take effect.
+
+#### 2.2 Swith towards GPU and CPU
+
+The default mode is set to the GPU version. 
+
+To switch to the CPU,
+1. navigate to line 29 in the 'learning_planning.hpp' file and replace 'device(torch::kGPU)' with 'device(torch::kCPU)'. After making this change, recompile the code for the updates to take effect.
+2. In "AllocNet/src/planner/launch/learning_planning.launch, line 63, change the model
+   
+```
+   <param name="ModelPath" value="$(find planner)/models/seq5_tokenthresh0_35.pt"/>
+```
+to 
+
+```
+   <param name="ModelPath" value="$(find planner)/models/seq5_tokenthresh0_35_cpu.pt"/>
+```
+
 
 You can also check: - [Installing C++ Distributions of PyTorch](https://pytorch.org/cppdocs/installing.html)
 
