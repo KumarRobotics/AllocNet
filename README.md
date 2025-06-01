@@ -76,12 +76,12 @@ sudo make install
 ##### 2.1 Build
 
 ```
-git clone git@github.com:yuwei-wu/AllocNet.git && cd AllocNet/src
+git clone git@github.com:KumarRobotics/AllocNet.git && cd AllocNet/src
 wstool init && wstool merge utils.rosinstall && wstool update
 catkin build
 ```
 
-#### 2.2 Swith towards GPU and CPU
+#### 2.2 Switch towards GPU and CPU
 
 The default mode is set to the GPU version. 
 
@@ -109,7 +109,7 @@ source devel/setup.bash
 roslaunch planner learning_planning.launch
 ```
 
-click 2D Nav Goal to trigger planning:
+Click 2D Nav Goal to trigger planning:
 
 <p align="center">
   <img src="docs/sim_vis.gif"/>
